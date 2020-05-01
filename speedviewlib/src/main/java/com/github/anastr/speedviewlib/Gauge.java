@@ -642,25 +642,25 @@ public abstract class Gauge extends View {
 
         cancelSpeedAnimator();
         realSpeedAnimator = ValueAnimator.ofInt((int) currentSpeed, (int)speed);
-//        realSpeedAnimator.setRepeatCount(ValueAnimator.RESTART);
-//        realSpeedAnimator.setInterpolator(new LinearInterpolator());
-//        realSpeedAnimator.setDuration(Math.abs((long) ((speed - currentSpeed) * 10) ));
+        realSpeedAnimator.setRepeatCount(ValueAnimator.RESTART);
+        realSpeedAnimator.setInterpolator(new LinearInterpolator());
+        realSpeedAnimator.setDuration(Math.abs((long) ((speed - currentSpeed) * 10) ));
         final float finalSpeed = speed;
         realSpeedAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-//                if (isSpeedIncrease) {
-//                    float per = 100.005f-getPercentSpeed();
-//                    currentSpeed += (accelerate * 10f) * per *.01f;
-//                    if (currentSpeed > finalSpeed)
-//                        currentSpeed = finalSpeed;
-//                }
-//                else {
-//                    float per = getPercentSpeed()+.005f;
-//                    currentSpeed -= (decelerate * 10f) * per *.01f +.1f;
-//                    if (currentSpeed < finalSpeed)
-//                        currentSpeed = finalSpeed;
-//                }
+                if (isSpeedIncrease) {
+                    float per = 100.005f-getPercentSpeed();
+                    currentSpeed += (accelerate * 10f) * per *.01f;
+                    if (currentSpeed > finalSpeed)
+                        currentSpeed = finalSpeed;
+                }
+                else {
+                    float per = getPercentSpeed()+.005f;
+                    currentSpeed -= (decelerate * 10f) * per *.01f +.1f;
+                    if (currentSpeed < finalSpeed)
+                        currentSpeed = finalSpeed;
+                }
                 currentSpeed = finalSpeed;
                 postInvalidate();
                 if (finalSpeed == currentSpeed)

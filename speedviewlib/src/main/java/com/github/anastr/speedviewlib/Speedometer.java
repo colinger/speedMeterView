@@ -593,7 +593,6 @@ public abstract class Speedometer extends Gauge {
             return;
 
         textPaint.setTextAlign(Paint.Align.LEFT);
-        textPaint.setColor(Color.BLUE);
 
         for (int i=0; i < ticks.size(); i++) {
             float d = getDegreeAtSpeed(ticks.get(i)) + 90f;
